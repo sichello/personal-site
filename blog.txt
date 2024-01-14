@@ -3,4 +3,5 @@ Chunk 1: Building the Front End - Steps 1-6
 - Ran into a ~3 day delay transferring the sichello.com domain from GoDaddy to R53. This was an issue with NS recordconfigurations. I had configured the NS record correctly the hosted zone in R53 correctly but didn't realize the domain itself needs to have the NS updated as well. 
 
 
-Chunk 2: Building the API  - Steps 7-
+Chunk 2: Building the API  - Steps 7-12
+- For the vistor counter, an Api Gateway will trigger a Lambda function to update a DynamoDB table with the counter 
