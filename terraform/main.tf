@@ -1,5 +1,9 @@
+resource "aws_s3_bucket" "sichello_bucket" {
+  bucket = "sichello.com-terraform"
+}
+
 resource "aws_s3_bucket_website_configuration" "static_website" {
-  bucket = "sichello.com-terraform"  # Change this to a globally unique bucket name
+  bucket = aws_s3_bucket.sichello_bucket.id
 
   index_document {
     suffix = "index.html"
