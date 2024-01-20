@@ -2,10 +2,12 @@ resource "aws_s3_bucket" "sichello_bucket" {
   bucket = "sichello.com-terraform"
 }
 
-resource "aws_s3_object" "website_dir" {
+resource "aws_s3_object" "provision_website_files" {
+
   for_each = fileset("../website/", "**/*.*")
+
   bucket = aws_s3_bucket.sichello_bucket.id
-  key    = each.key
+  key    = each.value
   source = "${each.value}"
 }
 
