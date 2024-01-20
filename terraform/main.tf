@@ -10,8 +10,9 @@ resource "aws_s3_object" "website_dir" {
   tags = {
     Env = "test"
   }
+}
 
-  resource "aws_s3_bucket_website_configuration" "static_website" {
+resource "aws_s3_bucket_website_configuration" "static_website" {
   bucket = aws_s3_bucket.sichello_bucket.id
 
   index_document {
