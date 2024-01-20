@@ -3,5 +3,23 @@ Chunk 1: Building the Front End - Steps 1-6
 - Ran into a ~3 day delay transferring the sichello.com domain from GoDaddy to R53. This was an issue with NS recordconfigurations. I had configured the NS record correctly the hosted zone in R53 correctly but didn't realize the domain itself needs to have the NS updated as well. 
 
 
-Chunk 2: Building the API  - Steps 7-12
-- For the vistor counter, an Api Gateway will trigger a Lambda function to update a DynamoDB table with the counter 
+Chunk 2: Building the API  - Steps 8-12
+- Architecture: For the vistor counter, an Api Gateway triggers a Lambda function to update DynamoDB table with the counter 
+- Database: sturggled for awhile figuring out what the correct structure for the DynamoDB table should be. This was my first time using NoSQL DB and that took a bit of research in LinkedIn learning. In the end I went with one table called "visitorCounter" which uses a partition key called "site" , this key has one number attibute called "count". For example: the visitorCounter table for site:sichello contains value count:xxx where xxx is the visitor count. 
+- Lambda function: python function called "increment_visitors" which has a lambda_handler that handles GET and POST requests. GET will return the current visitor count and POST will increment the visitor count then return the updated value. For all other request methods, a 400 error is returned.  
+- API gateway: provides one route api.sichello.com/increment_visitors . Any request mehtod made to this route is integrated with the Lambda fucntion resource. The biggest hurdle I encountered here was correctly configuring the API to allow CORS. API requests coming from my chrome browser (where CORS is enforced) were denied, but the same requests coming from postman were successful. Once I learned that postman does not enforce CORS it seemed obvious. To appease the browser gods it was necessary to configure the API gateway to allow CORS access and CORS headers for all methods, but it was also necessary to include the CORS headers below in the responses coming from my lambda function. 
+            'Access-Control-Allow-Origin' : '*',
+            'Access-Control-Allow-Headers':'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token',
+            'Access-Control-Allow-Credentials' : 'true',
+Also hit a small hurdle with configuring the API to use custom domain name api.sichello.com instead of the default AWS URL provided. This was due to an error in my Route 53 CName entry. 
+
+Chunk 3: FrontEnd/Backend Integration - Steps 7,11
+- Javascript: this section was very straightforward. Added a divider with id="visitorsCount"  to the HTML. I then embdeed a client-side script visitorCounter.js which performs a POST to the /visitorCounter API then parses the JSON reply to get the updated vistor count and update the vistor counter in the DOM with this value. 
+- To Do: 
+    - write python unit tests for the code 
+    - clean up visual presentation of counter in CSS 
+
+
+Chunk 4: Automation/CI
+- Need to convert existing AWS infrastructure to Terraform project. 
+
