@@ -1,7 +1,7 @@
 resource "aws_s3_bucket_website_configuration" "static_website" {
   bucket = "sichello.com-terraform"  # Change this to a globally unique bucket name
 
-  aws_s3_bucket_acl = "public-read"
+  acl = "public-read"
 
   website {
     index_document = "index.html"
