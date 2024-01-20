@@ -8,10 +8,6 @@ resource "aws_s3_bucket_website_configuration" "static_website" {
   error_document {
     key = "error.html"
   }
-
-
-  tags = {
-    Name = "sichello"
-  }
+  
 }
 
