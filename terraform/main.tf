@@ -6,14 +6,14 @@ resource "aws_s3_object" "website_dir" {
   for_each = fileset("../website/", "**/*.*")
   bucket = aws_s3_bucket.sichello_bucket.id
   key    = each.key
-  source = "website/${each.value}"
+  source = "${each.value}"
 }
 
 resource "aws_s3_bucket_website_configuration" "static_website" {
   bucket = aws_s3_bucket.sichello_bucket.id
 
   index_document {
-    suffix = "site_resources/index.html"
+    suffix = "index.html"
   }
   error_document {
     key = "error.html"
