@@ -18,15 +18,24 @@ resource "aws_s3_bucket_policy" "allow_access_from_another_account" {
 }
 
 data "aws_iam_policy_document" "allow_access_from_another_account" {
-    "Statement": [
-        {
-            "Sid": "PublicReadGetObject",
-            "Effect": "Allow",
-            "Principal": "*",
-            "Action": "s3:GetObject",
-            "Resource": "$aws_s3_bucket.sichello_bucket.arn/*"
-        }
+  statement {
+    sid    = "PublicReadGetObject"
+    effect = "Allow"
+
+    principals {
+      type        = "*"
+      identifiers = ["*"]
+    }
+
+    actions = [
+      "s3:GetObject",
     ]
+
+    resources = [
+      aws_s3_bucket.sichello_bucket.arn,
+      "${aws_s3_bucket.sichello_bucket.arn}/*",
+    ]
+  }
 }
 
 module "template_files" {
