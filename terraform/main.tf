@@ -12,6 +12,7 @@ resource "aws_s3_object" "provision_website_files" {
   key                    = "index.html"
   bucket                 = aws_s3_bucket.sichello_bucket.id
   source                 = "../website/index.html"
+  content_type           = "text/html"
 }
 
 resource "aws_s3_bucket_website_configuration" "static_website" {
