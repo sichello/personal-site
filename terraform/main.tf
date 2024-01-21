@@ -2,6 +2,33 @@ resource "aws_s3_bucket" "sichello_bucket" {
   bucket = "sichello.com-terraform"
 }
 
+resource "aws_s3_bucket_public_access_block" "public_bucket_access" {
+  bucket = aws_s3_bucket.sichello_bucket.id
+
+  block_public_acls       = false
+  block_public_policy     = false
+  ignore_public_acls      = false
+  restrict_public_buckets = false
+}
+
+
+resource "aws_s3_bucket_policy" "allow_access_from_another_account" {
+  bucket = aws_s3_bucket.sichello_bucket.id
+  policy = data.aws_iam_policy_document.allow_access_from_another_account.json
+}
+
+data "aws_iam_policy_document" "allow_access_from_another_account" {
+    "Statement": [
+        {
+            "Sid": "PublicReadGetObject",
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": "s3:GetObject",
+            "Resource": "$aws_s3_bucket.sichello_bucket.arn/*"
+        }
+    ]
+}
+
 module "template_files" {
   source = "hashicorp/dir/template"
 
