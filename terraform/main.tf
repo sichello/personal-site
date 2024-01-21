@@ -5,14 +5,14 @@ resource "aws_s3_bucket" "sichello_bucket" {
 module "template_files" {
   source = "hashicorp/dir/template"
 
-  base_dir = "${path.module}/website"
+  base_dir = "../website"
   template_vars = {
     # Pass in any values that you wish to use in your templates.
     # vpc_id = "vpc-abc123"
   }
 }
 
-resource "aws_s3_bucket_object" "static_files" {
+resource "aws_s3_object" "static_files" {
   for_each = module.template_files.files
 
   bucket       = aws_s3_bucket.sichello_bucket.id
