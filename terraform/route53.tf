@@ -5,7 +5,7 @@ resource "aws_route53_record" "sichello_R53" {
 
   alias {
     name                   = aws_cloudfront_distribution.cloudfront_distro.domain_name
-    zone_id                = aws_cloudfront_distribution.cloudfront_distro.domain_name.hosted_zone_id
+    zone_id                = aws_cloudfront_distribution.cloudfront_distro.hosted_zone_id
     evaluate_target_health = false
   }
 }
