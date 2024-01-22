@@ -1,3 +1,3 @@
 module "s3" {
-  source = "modules/s3.tf"
+  source = "./modules/s3.tf"
 }
