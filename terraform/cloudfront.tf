@@ -13,7 +13,7 @@ module "cdn" {
 #  create_origin_access_identity = true
 #  origin_access_identities = {
 #    s3_bucket_one = "My awesome CloudFront can access"
-  }
+#  }
 
   origin = {
     sichello_static = {
