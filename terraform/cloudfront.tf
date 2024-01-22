@@ -34,15 +34,15 @@ module "cdn" {
  #   }
   }
 
-  default_cache_behavior = {
-    target_origin_id           = aws_s3_bucket_website_configuration.static_website.website_endpoint
-    viewer_protocol_policy     = "allow-all"
-
-    allowed_methods = ["GET", "POST", "OPTIONS"]
-    cached_methods  = ["GET", "POST"]
-    compress        = true
-    query_string    = true
-  }
+# default_cache_behavior = {
+# target_origin_id           = aws_s3_bucket_website_configuration.static_website.website_endpoint
+# viewer_protocol_policy     = "allow-all"
+# 
+# allowed_methods = ["GET", "POST", "OPTIONS"]
+# cached_methods  = ["GET", "POST"]
+# compress        = true
+# query_string    = true
+# }
 
   viewer_certificate = {
     acm_certificate_arn = "arn:aws:acm:us-east-1:246445056940:certificate/4cd39535-53fd-4b05-bd34-18983ebf7baf"
