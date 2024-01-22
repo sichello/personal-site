@@ -52,7 +52,7 @@
 
 resource "aws_cloudfront_distribution" "s3_static_website" {
   origin {
-    domain_name              = "http://sichello.com.s3-website.ca-central-1.amazonaws.com"
+    domain_name              = "sichello.com.s3-website.ca-central-1.amazonaws.com"
     # origin_access_control_id = aws_cloudfront_origin_access_control.default.id
     origin_id                = "sichelloOrigin"
     custom_origin_config {
