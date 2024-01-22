@@ -13,6 +13,7 @@ resource "aws_cloudfront_distribution" "cloudfront_distro" {
 
   enabled             = true
   is_ipv6_enabled     = true
+  retain_on_delete    = true
   # comment             = "sichello.com comment"
 
   # default_root_object = "index.html"
