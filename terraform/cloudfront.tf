@@ -63,8 +63,8 @@ resource "aws_cloudfront_distribution" "s3_static_website" {
     }
   }
 
-  # enabled             = true
-  # is_ipv6_enabled     = true
+  enabled             = true
+  is_ipv6_enabled     = true
   # comment             = "sichello.com comment"
 
   # default_root_object = "index.html"
