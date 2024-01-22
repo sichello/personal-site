@@ -32,7 +32,7 @@ resource "aws_s3_bucket_policy" "allow_access_from_another_account" {
 module "template_files" {
   source = "hashicorp/dir/template"
 
-  base_dir = "../website"
+  base_dir = "../src"
   template_vars = {
     # Pass in any values that you wish to use in your templates.
     # vpc_id = "vpc-abc123"
