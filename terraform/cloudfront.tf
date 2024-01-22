@@ -53,13 +53,14 @@
 resource "aws_cloudfront_distribution" "s3_distribution" {
   origin {
     domain_name              = aws_s3_bucket_website_configuration.static_website.website_endpoint
-    origin_access_control_id = aws_cloudfront_origin_access_control.default.id
+    # origin_access_control_id = aws_cloudfront_origin_access_control.default.id
     origin_id                = "sichelloOrigin"
   }
 
   enabled             = true
   is_ipv6_enabled     = true
   comment             = "sichello.com comment"
+  price_class         = "PriceClass_100"
   # default_root_object = "index.html"
 
   # logging_config {
@@ -80,8 +81,6 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
     default_ttl            = 3600
     max_ttl                = 86400
   }
-
-  price_class = "PriceClass_100"
 
   restrictions {
     geo_restriction {
