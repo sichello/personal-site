@@ -1,7 +1,11 @@
-resource "aws_route53_record" "regional" {
+resource "aws_route53_record" "sichello_R53" {
   zone_id = var.sichello_R53_zoneId
   name    = var.root_doamin_name
   type    = "A"
-  ttl     = "60"
-  records = ["${aws_cloudfront_distribution.cloudfront_distro.domain_name}"]
+
+  alias {
+    name                   = aws_cloudfront_distribution.cloudfront_distro.domain_name
+    zone_id                = aws_cloudfront_distribution.cloudfront_distro.domain_name.hosted_zone_id
+    evaluate_target_health = false
+  }
 }
