@@ -79,7 +79,7 @@ resource "aws_cloudfront_distribution" "s3_static_website" {
 
   default_cache_behavior {
     target_origin_id = "sichelloOrigin"
-    allowed_methods  = ["GET", "POST", ]
+    allowed_methods  = ["GET", "POST"]
     cached_methods   = ["GET", "POST"]
 
     forwarded_values {
