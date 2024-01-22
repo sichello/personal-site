@@ -22,4 +22,6 @@ Chunk 3: FrontEnd/Backend Integration - Steps 7,11
 
 Chunk 4: Automation/CI
 - Need to convert existing AWS infrastructure to Terraform project. 
+- Took tf course on onlinked learning as a primer 
+- 
 
