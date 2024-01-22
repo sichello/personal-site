@@ -35,7 +35,7 @@ module "cdn" {
   }
 
   default_cache_behavior = {
-    target_origin_id           = sichello_static
+    target_origin_id           = aws_s3_bucket_website_configuration.static_website.website_endpoint
     viewer_protocol_policy     = "allow-all"
 
     allowed_methods = ["GET", "POST", "OPTIONS"]
