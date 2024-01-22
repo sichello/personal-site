@@ -103,7 +103,8 @@ resource "aws_cloudfront_distribution" "s3_static_website" {
   }
 
   viewer_certificate {
-    cloudfront_default_certificate = "arn:aws:acm:us-east-1:246445056940:certificate/4cd39535-53fd-4b05-bd34-18983ebf7baf"
+    acm_certificate_arn = "arn:aws:acm:us-east-1:246445056940:certificate/4cd39535-53fd-4b05-bd34-18983ebf7baf"
+    ssl_support_method = "sni-only"
   }
 
   price_class         = "PriceClass_100"
