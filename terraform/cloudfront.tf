@@ -50,17 +50,23 @@
 #   # }
 # }
 
-resource "aws_cloudfront_distribution" "s3_distribution" {
+resource "aws_cloudfront_distribution" "s3_static_website" {
   origin {
-    domain_name              = aws_s3_bucket_website_configuration.static_website.website_endpoint
+    domain_name              = "http://sichello.com.s3-website.ca-central-1.amazonaws.com"
     # origin_access_control_id = aws_cloudfront_origin_access_control.default.id
     origin_id                = "sichelloOrigin"
+    custom_origin_config {
+      http_port              = 80
+      https_port             = 443
+      origin_protocol_policy = "match-viewer"
+      origin_ssl_protocols   = ["TLSv1","TLSv1.1","TLSv1.2"]
+    }
   }
 
-  enabled             = true
-  is_ipv6_enabled     = true
-  comment             = "sichello.com comment"
-  price_class         = "PriceClass_100"
+  # enabled             = true
+  # is_ipv6_enabled     = true
+  # comment             = "sichello.com comment"
+
   # default_root_object = "index.html"
 
   # logging_config {
@@ -72,14 +78,22 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
   aliases = ["sichello.com", "www.sichello.com"]
 
   default_cache_behavior {
+    target_origin_id = "sichelloOrigin"
     allowed_methods  = ["GET", "POST", ]
     cached_methods   = ["GET", "POST"]
-    target_origin_id = "sichelloOrigin"
 
-    viewer_protocol_policy = "allow-all"
+    forwarded_values {
+      query_string = true
+
+      cookies {
+        forward = "all"
+      }
+    }
+
+    viewer_protocol_policy = "redirect-to-https"
     min_ttl                = 0
-    default_ttl            = 3600
-    max_ttl                = 86400
+    default_ttl            = 0
+    max_ttl                = 0
   }
 
   restrictions {
@@ -88,11 +102,9 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
     }
   }
 
-  tags = {
-    Environment = "production"
-  }
-
   viewer_certificate {
     cloudfront_default_certificate = true
   }
+
+  price_class         = "PriceClass_100"
 }
