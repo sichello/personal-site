@@ -1,4 +1,4 @@
-resource "aws_dynamodb_table" "dynamodb-table" {
+resource "aws_dynamodb_table" "sichello-dynamodb-table" {
   name           = "visitors"
   billing_mode   = "PAY_PER_REQUEST"
   hash_key       = "site"
@@ -16,23 +16,14 @@ resource "aws_dynamodb_table" "dynamodb-table" {
   }
 }
 
-# module "dynamodb_table" {
-#   source   = "terraform-aws-modules/dynamodb-table/aws"
+resource "aws_dynamodb_table_item" "sichello" {
+  table_name = aws_dynamodb_table.sichello-dynamodb-table.name
+  hash_key   = aws_dynamodb_table.sichello-dynamodb-table.hash_key
 
-#   name           = "visitors"
-#   billing_mode   = "PAY_PER_REQUEST"
-#   hash_key       = "site"
-#   table_class    = "STANDARD_INFREQUENT_ACCESS"
-
-#   attributes = [
-#     {
-#         name = "site"
-#         type = "S"
-#     },
-#     {
-#         name = "count"
-#         type = "N"
-#     }
-#   ]
-# }
-
+  item = <<ITEM
+  {
+    "site": {"S": "sichello.com"},
+    "count": {"N": "0"},
+  }
+  ITEM
+}
