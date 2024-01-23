@@ -20,10 +20,8 @@ resource "aws_dynamodb_table_item" "sichello" {
   table_name = aws_dynamodb_table.sichello-dynamodb-table.name
   hash_key   = aws_dynamodb_table.sichello-dynamodb-table.hash_key
 
-  item = <<ITEM
-{
-"site": {"S": "sichello.com"},
-"count": {"N": "0"},
-}
-ITEM
+  item = jsonencode({
+    "site": {"S": "sichello.com"},
+    "count": {"N": "0"}
+  })
 }
