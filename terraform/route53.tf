@@ -24,7 +24,7 @@ resource "aws_route53_record" "www-sichello-R53" {
 
 resource "aws_route53_record" "api-sichello-R53" {
   zone_id = var.sichello_R53_zoneId
-  name    = "api.${var.root_doamin_name}"
+  name    = aws_apigatewayv2_domain_name.sichello-API-Domain.domain_name
   type    = "A"
 
   alias {
