@@ -30,7 +30,7 @@ def lambda_handler(event, context):
            
     if operation == 'GET':
         # Retrieve item from DynamoDB
-        response = dynamo.get_item(TableName='visitorCounter', Key=key)
+        response = dynamo.get_item(TableName='visitors', Key=key)
         
 
     
@@ -39,14 +39,14 @@ def lambda_handler(event, context):
         print('In POST')
         # Update item in DynamoDB to increment the 'count' attribute
         updateResponse = dynamo.update_item(
-            TableName='visitorCounter',
+            TableName='visitors',
             Key=key,
             UpdateExpression='SET #count = #count + :increment',
             ExpressionAttributeNames={'#count': 'count'},
             ExpressionAttributeValues={':increment': {'N': '1'}}
         )
         print(json.dumps(updateResponse))
-        response = dynamo.get_item(TableName='visitorCounter', Key=key)
+        response = dynamo.get_item(TableName='visitors', Key=key)
         
     else:
         return respond(ValueError('Unsupported method "{}"'.format(operation)))

@@ -3,17 +3,11 @@ resource "aws_dynamodb_table" "sichello-dynamodb-table" {
   billing_mode   = "PAY_PER_REQUEST"
   hash_key       = "site"
   table_class    = "STANDARD_INFREQUENT_ACCESS"
-#   range_key      = "count"
-
 
   attribute {
     name = "site"
     type = "S"
   }
-#   attribute{
-#     name = "count"
-#     type = "N"
-#   }
 }
 
 resource "aws_dynamodb_table_item" "sichello" {
