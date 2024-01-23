@@ -14,15 +14,6 @@ resource "aws_cloudfront_distribution" "cloudfront_distro" {
   enabled             = true
   is_ipv6_enabled     = true
   retain_on_delete    = true
-  # comment             = "sichello.com comment"
-
-  # default_root_object = "index.html"
-
-  # logging_config {
-  #   include_cookies = false
-  #   bucket          = "mylogs.s3.amazonaws.com"
-  #   prefix          = "myprefix"
-  # }
 
   aliases = ["${var.root_doamin_name}", "www.${var.root_doamin_name}"]
 
@@ -52,7 +43,7 @@ resource "aws_cloudfront_distribution" "cloudfront_distro" {
   }
 
   viewer_certificate {
-    acm_certificate_arn = "arn:aws:acm:us-east-1:246445056940:certificate/4cd39535-53fd-4b05-bd34-18983ebf7baf"
+    acm_certificate_arn = var.sichello_cert_arn
     ssl_support_method = "sni-only"
   }
 
