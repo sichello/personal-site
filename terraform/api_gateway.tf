@@ -4,7 +4,7 @@ resource "aws_apigatewayv2_api" "sichello-visitors-API" {
 
   cors_configuration {
     allow_headers     = ["*"]
-    allow_methods     = ["GET,POST"]
+    allow_methods     = ["*"]
     allow_origins     = ["*"]
     expose_headers    = ["*"]
     max_age           = "300"
