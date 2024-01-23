@@ -22,7 +22,7 @@ resource "aws_route53_record" "www-sichello-R53" {
   }
 }
 
-resource "aws_route53_record" "www-sichello-R53" {
+resource "aws_route53_record" "api-sichello-R53" {
   zone_id = var.sichello_R53_zoneId
   name    = "api.${var.root_doamin_name}"
   type    = "A"
