@@ -29,7 +29,7 @@ resource "aws_route53_record" "api-sichello-R53" {
 
   alias {
     name                   = aws_apigatewayv2_api.sichello-visitors-API.api_endpoint
-    zone_id                = var.sichello_R53_zoneId
+    zone_id                = aws_apigatewayv2_domain_name.sichello-API-Domain.hosted_zone_id 
     evaluate_target_health = false
   }
 }

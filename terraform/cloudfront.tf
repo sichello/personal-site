@@ -1,7 +1,6 @@
 resource "aws_cloudfront_distribution" "cloudfront_distro" {
   origin {
     domain_name              = aws_s3_bucket_website_configuration.static_website.website_endpoint
-    # origin_access_control_id = aws_cloudfront_origin_access_control.default.id
     origin_id                = "${var.root_doamin_name}-Origin"
     custom_origin_config {
       http_port              = 80
