@@ -19,13 +19,13 @@ module "dynamodb_table" {
 
   attributes = [
     {
-      name = "id"
-      type = "N"
+        name = "site"
+        type = "S"
     },
     {
-    name = "count"
-    type = "N"
-  }
+        name = "count"
+        type = "N"
+    }
   ]
 }
 
