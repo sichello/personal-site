@@ -1,7 +1,7 @@
 resource "aws_cloudfront_distribution" "cloudfront_distro" {
   origin {
     domain_name              = aws_s3_bucket_website_configuration.static_website.website_endpoint
-    origin_id                = "${var.root_doamin_name}-Origin"
+    origin_id                = "${var.root_domain_name}-Origin"
     custom_origin_config {
       http_port              = 80
       https_port             = 443
@@ -14,10 +14,10 @@ resource "aws_cloudfront_distribution" "cloudfront_distro" {
   is_ipv6_enabled     = true
   retain_on_delete    = true
 
-  aliases = ["${var.root_doamin_name}", "www.${var.root_doamin_name}"]
+  aliases = ["${var.root_domain_name}", "www.${var.root_domain_name}"]
 
   default_cache_behavior {
-    target_origin_id = "${var.root_doamin_name}-Origin"
+    target_origin_id = "${var.root_domain_name}-Origin"
     allowed_methods  = ["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"]
     cached_methods   = ["GET", "HEAD"]
 
