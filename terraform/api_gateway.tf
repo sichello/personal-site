@@ -10,7 +10,7 @@ resource "aws_apigatewayv2_domain_name" "sichello-API" {
 }
 
 resource "aws_apigatewayv2_api" "sichello-visitors-API" {
-  name          = "sichello-visitors-API"
+  name          = "sichello-visitors"
   protocol_type = "HTTP"
 
   cors_configuration {
