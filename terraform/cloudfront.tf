@@ -43,7 +43,7 @@ resource "aws_cloudfront_distribution" "cloudfront_distro" {
   }
 
   viewer_certificate {
-    acm_certificate_arn = var.sichello_cert_arn
+    acm_certificate_arn = var.sichello_cert_arn_us_east_1
     ssl_support_method = "sni-only"
   }
 
