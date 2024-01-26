@@ -1,16 +1,17 @@
-data "aws_iam_policy_document" "lambda_assume_role_policy"{
+data "aws_iam_policy_document" "lambda_assume_role_policy" {
   statement {
-    effect  = "Allow"
+    effect = "Allow"
     actions = ["sts:AssumeRole"]
     principals {
       type        = "Service"
       identifiers = ["lambda.amazonaws.com"]
     }
-  },
-  {
+  }
+
+  statement {
     effect    = "Allow"
     resources = ["${aws_dynamodb_table.sichello-dynamodb-table.arn}"]
-    actions = [
+    actions   = [
       "dynamodb:DeleteItem",
       "dynamodb:GetItem",
       "dynamodb:PutItem",
@@ -19,6 +20,7 @@ data "aws_iam_policy_document" "lambda_assume_role_policy"{
     ]
   }
 }
+
 
 resource "aws_iam_role" "lambda_role" {  
   name = "lambda-lambdaRole"  
