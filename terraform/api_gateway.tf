@@ -9,6 +9,12 @@ resource "aws_apigatewayv2_domain_name" "sichello-API" {
   }
 }
 
+resource "aws_apigatewayv2_api_mapping" "mapping" {
+  api_id      = s_apigatewayv2_api.sichello-visitors-API.id
+  domain_name = aws_apigatewayv2_domain_name.sichello-API.id
+  stage       = aws_apigatewayv2_stage.prod_stage.id
+}
+
 resource "aws_apigatewayv2_api" "sichello-visitors-API" {
   name          = "sichello-visitors"
   protocol_type = "HTTP"
