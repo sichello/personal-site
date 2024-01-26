@@ -23,7 +23,7 @@ resource "aws_apigatewayv2_api" "sichello-visitors-API" {
 }
 
 resource "aws_apigatewayv2_integration" "visitorAPI-integration" {
-  api_id           = aws_apigatewayv2_api.visitorAPI_lambda_function.id
+  api_id           = aws_apigatewayv2_api.sichello-visitors-API.id
   integration_type = "AWS_PROXY"
 
   connection_type           = "INTERNET"
