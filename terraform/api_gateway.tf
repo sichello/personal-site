@@ -30,3 +30,9 @@ resource "aws_apigatewayv2_integration" "visitorAPI-integration" {
   description               = "Lambda integration"
   integration_uri           = aws_lambda_function.visitorAPI_lambda_function.invoke_arn
 }
+
+resource "aws_apigatewayv2_stage" "prod_stage" {
+  api_id      = aws_apigatewayv2_api.sichello-visitors-API.id
+  name        = "prod"
+  auto_deploy = true
+}
