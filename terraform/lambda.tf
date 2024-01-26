@@ -1,13 +1,31 @@
-data "aws_iam_policy_document" "lambda_assume_role_policy"{
-  statement {
-    effect  = "Allow"
-    actions = ["sts:AssumeRole"]
-    principals {
-      type        = "Service"
-      identifiers = ["lambda.amazonaws.com"]
+data "aws_iam_policy_document" "lambda_assume_role_policy" {
+  source_json = <<JSON
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "sts:AssumeRole",
+      "Principal": {
+        "Service": "lambda.amazonaws.com"
+      }
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "dynamodb:DeleteItem",
+        "dynamodb:GetItem",
+        "dynamodb:PutItem",
+        "dynamodb:Scan",
+        "dynamodb:UpdateItem"
+      ],
+      "Resource": "${aws_dynamodb_table.sichello-dynamodb-table.arn}"
     }
-  }
+  ]
 }
+JSON
+}
+
 
 resource "aws_iam_role" "lambda_role" {  
   name = "lambda-lambdaRole"  
