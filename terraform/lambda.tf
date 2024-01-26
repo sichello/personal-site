@@ -36,7 +36,7 @@ resource "aws_iam_policy" "dynamoDBLambdaPolicy" {
       {
         Effect = "Allow"
         Action = [
-          "dynamodb:GetItem"
+          "dynamodb:GetItem",
           "dynamodb:DeleteItem",
           "dynamodb:GetItem",
           "dynamodb:PutItem",
