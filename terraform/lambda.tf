@@ -7,7 +7,7 @@ data "aws_iam_policy_document" "lambda_assume_role_policy"{
       identifiers = ["lambda.amazonaws.com"]
     }
   },
-  statement {
+  {
     effect    = "Allow"
     resources = ["${aws_dynamodb_table.sichello-dynamodb-table.arn}"]
     actions = [
