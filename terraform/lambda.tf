@@ -17,7 +17,7 @@ resource "aws_iam_role" "lambda_role" {
 data "archive_file" "python_lambda_package" {  
   type = "zip"  
   source_file = "../lambda_visitorAPI.py" 
-  output_path = "lambda_visitorAPI.zip"
+  output_path = "lmabda_function.py"
 }
 
 resource "aws_lambda_function" "visitorAPI_lambda_function" {
