@@ -25,7 +25,7 @@ def lambda_handler(event, context):
     operation = event['httpMethod']
     
     key = {
-        'site':{'S':'sichello'}
+        'site':{'S':'sichello.com'}
     }
            
     if operation == 'GET':
