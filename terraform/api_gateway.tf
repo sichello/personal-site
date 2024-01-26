@@ -21,3 +21,13 @@ resource "aws_apigatewayv2_api" "sichello-visitors-API" {
     max_age           = "300"
   }
 }
+
+resource "aws_apigatewayv2_integration" "visitorAPI-integration" {
+  api_id           = aws_apigatewayv2_api.visitorAPI_lambda_function.id
+  integration_type = "AWS_PROXY"
+
+  connection_type           = "INTERNET"
+  description               = "Lambda integration"
+  integration_method        = "ANY"
+  integration_uri           = aws_lambda_function.visitorAPI_lambda_function.invoke_arn
+}
