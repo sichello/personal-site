@@ -28,6 +28,5 @@ resource "aws_apigatewayv2_integration" "visitorAPI-integration" {
 
   connection_type           = "INTERNET"
   description               = "Lambda integration"
-  integration_method        = "ANY"
   integration_uri           = aws_lambda_function.visitorAPI_lambda_function.invoke_arn
 }
