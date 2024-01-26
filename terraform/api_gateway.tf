@@ -32,11 +32,11 @@ resource "aws_apigatewayv2_integration" "visitorAPI-integration" {
   integration_uri           = aws_lambda_function.visitorAPI_lambda_function.invoke_arn
 }
 
-# Create default route
-resource "aws_apigatewayv2_route" "default_route" {
+# Create visitors route
+resource "aws_apigatewayv2_route" "visitors_route" {
   api_id    = aws_apigatewayv2_api.sichello-visitors-API.id
   route_key = "ANY /visitors"
-  target    = integrations/${aws_apigatewayv2_integration.visitorAPI-integration.id}
+  target    = "integrations/${aws_apigatewayv2_integration.visitorAPI-integration.id}"
 }
 
 # Deploy it 
