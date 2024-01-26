@@ -4,3 +4,6 @@ output "s3_url" {
 output "cloudfront_url" {
   value = aws_cloudfront_distribution.cloudfront_distro.domain_name
 }
+output "public_url" {
+  value = var.root_domain_name
+}

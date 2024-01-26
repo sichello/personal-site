@@ -52,7 +52,7 @@ resource "aws_apigatewayv2_stage" "prod_stage" {
   auto_deploy = true
 }
 
-# Permissions 
+# Lambda Permissions 
 resource "aws_lambda_permission" "api_gw" {
   statement_id  = "AllowExecutionFromAPIGateway"
   action        = "lambda:InvokeFunction"

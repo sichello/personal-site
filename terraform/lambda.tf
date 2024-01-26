@@ -1,32 +1,3 @@
-# data "aws_iam_policy_document" "lambda_assume_role_policy" {
-#   statement {
-#     effect = "Allow"
-#     actions = ["sts:AssumeRole"]
-#     principals {
-#       type        = "Service"
-#       identifiers = ["lambda.amazonaws.com"]
-#     }
-#   }
-
-#   statement {
-#     effect    = "Allow"
-#     resources = ["${aws_dynamodb_table.sichello-dynamodb-table.arn}"]
-#     actions   = [
-#       "dynamodb:DeleteItem",
-#       "dynamodb:GetItem",
-#       "dynamodb:PutItem",
-#       "dynamodb:Scan",
-#       "dynamodb:UpdateItem",
-#     ]
-#   }
-# }
-
-# resource "aws_iam_role" "lambda_role" {  
-#   name = "lambda-lambdaRole"  
-#   assume_role_policy = data.aws_iam_policy_document.lambda_assume_role_policy.json
-# }
-
-
 resource "aws_iam_policy" "dynamoDBLambdaPolicy" {
   name = "DynamoDBLambdaPolicy"
 
