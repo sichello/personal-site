@@ -22,6 +22,7 @@ resource "aws_apigatewayv2_api" "sichello-visitors-API" {
   }
 }
 
+# Lambda integration
 resource "aws_apigatewayv2_integration" "visitorAPI-integration" {
   api_id           = aws_apigatewayv2_api.sichello-visitors-API.id
   integration_type = "AWS_PROXY"
@@ -31,6 +32,14 @@ resource "aws_apigatewayv2_integration" "visitorAPI-integration" {
   integration_uri           = aws_lambda_function.visitorAPI_lambda_function.invoke_arn
 }
 
+# Create default route
+resource "aws_apigatewayv2_route" "default_route" {
+  api_id    = aws_apigatewayv2_api.sichello-visitors-API.id
+  route_key = "ANY /visitors"
+  target    = integrations/${aws_apigatewayv2_integration.visitorAPI-integration.id}
+}
+
+# Deploy it 
 resource "aws_apigatewayv2_stage" "prod_stage" {
   api_id      = aws_apigatewayv2_api.sichello-visitors-API.id
   name        = "prod"
