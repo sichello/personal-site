@@ -29,20 +29,20 @@ resource "aws_apigatewayv2_api" "sichello-visitors-API" {
 }
 
 # Lambda integration
-resource "aws_apigatewayv2_integration" "visitorAPI-integration" {
+resource "aws_apigatewayv2_integration" "visitors-integration" {
   api_id           = aws_apigatewayv2_api.sichello-visitors-API.id
   integration_type = "AWS_PROXY"
 
   connection_type           = "INTERNET"
   description               = "Lambda integration"
-  integration_uri           = aws_lambda_function.visitorAPI_lambda_function.invoke_arn
+  integration_uri           = aws_lambda_function.visitors_lambda_function.invoke_arn
 }
 
 # Create visitors route
 resource "aws_apigatewayv2_route" "visitors_route" {
   api_id    = aws_apigatewayv2_api.sichello-visitors-API.id
   route_key = "ANY /visitors"
-  target    = "integrations/${aws_apigatewayv2_integration.visitorAPI-integration.id}"
+  target    = "integrations/${aws_apigatewayv2_integration.visitors-integration.id}"
 }
 
 # Deploy it 
