@@ -8,17 +8,17 @@ data "aws_iam_policy_document" "lambda_assume_role_policy" {
     }
   }
 
-  statement {
-    effect    = "Allow"
-    resources = ["${aws_dynamodb_table.sichello-dynamodb-table.arn}"]
-    actions   = [
-      "dynamodb:DeleteItem",
-      "dynamodb:GetItem",
-      "dynamodb:PutItem",
-      "dynamodb:Scan",
-      "dynamodb:UpdateItem",
-    ]
-  }
+  # statement {
+  #   effect    = "Allow"
+  #   resources = ["${aws_dynamodb_table.sichello-dynamodb-table.arn}"]
+  #   actions   = [
+  #     "dynamodb:DeleteItem",
+  #     "dynamodb:GetItem",
+  #     "dynamodb:PutItem",
+  #     "dynamodb:Scan",
+  #     "dynamodb:UpdateItem",
+  #   ]
+  # }
 }
 
 
