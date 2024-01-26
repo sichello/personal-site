@@ -51,7 +51,7 @@ resource "aws_iam_policy" "dynamoDBLambdaPolicy" {
   })
 }
 
-resource "aws_iam_role" "lambdaRole" {
+resource "aws_iam_role" "lambda_role" {
   name = "LambdaRole"
 
   assume_role_policy = jsonencode({
@@ -69,7 +69,7 @@ resource "aws_iam_role" "lambdaRole" {
 }
 
 resource "aws_iam_role_policy_attachment" "lambda-policy-attachment" {
-  role       = aws_iam_role.lambdaRole.name
+  role       = aws_iam_role.lambda_role.name
   policy_arn = aws_iam_policy.dynamoDBLambdaPolicy.arn
 }
 
