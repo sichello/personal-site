@@ -2,7 +2,7 @@
     // Function to make the PUT request
     const updateVisitorsCount = async () => {
       try {
-        const response = await fetch('https://api.sichello.com/increment_visitors', {
+        const response = await fetch('https://api.sichello.com/visitors', {
           method: 'POST'
         });
 
