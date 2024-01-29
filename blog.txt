@@ -22,6 +22,6 @@ Chunk 3: FrontEnd/Backend Integration - Steps 7,11
 
 Chunk 4: Automation/CI
 - Took tf course on onlinked learning as a primer 
-- The struggle is where the learning happens. After much struggle and nearly 100 terraform commits/runs I was able to completely automate the deployment of the site and AWS infrastructure using Terraform. This is such a cool approach- manually provisioning and integrating all AWS resources, deplyoing the full stack, then testing it is a task that would take several hours and present several hurdles, even for a senior AWS admin. I am now able to spin up or tear down the entire site in a matter of seconds with a single click while versioning my infrastructure and easily controlling all variables. 
+- The struggle is where the learning happens. After much struggle and nearly 100 terraform commits/runs I was able to completely automate the deployment of the site and AWS infrastructure using Terraform. This is such a cool approach- manually provisioning and integrating all 26 AWS resources, deplyoing the full stack, then testing it is a task that would take several hours and present several hurdles, even for a senior AWS admin. I am now able to spin up or tear down the entire site in a matter of seconds with a single click while versioning my infrastructure and easily controlling all variables. 
 
 
