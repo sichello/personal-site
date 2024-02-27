@@ -1,554 +1,363 @@
 <!DOCTYPE html>
-<html lang='en' class=''>
+<html lang="en">
 
 <head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <meta charset='UTF-8'>
-  <title>CodePen Demo</title>
+  <title>iPortfolio Bootstrap Template - Index</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
 
-  <meta name="robots" content="noindex">
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-  <link rel="shortcut icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico">
-  <link rel="mask-icon" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-b4b4269c16397ad2f0f7a01bcdf513a1994f4c94b8af2f191c09eb0d601762b1.svg" color="#111">
-  <link rel="canonical" href="https://codepen.io/jimboobrien/pen/XXPwMe">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
-  
-  
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-  <style id="INLINE_PEN_STYLESHEET_ID">
-    html, body { background: #777; padding: 20px 0; }	
-h5 { font-weight: bold; }
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
 
-		#resume-container {  
-			background: rgba(255,255,255,1); 
-			color: black !important;
-			opacity: 1 !important; 
-			margin-bottom: 40px; 
-			padding-bottom: 20px;  
-			border-radius: 7px; 
-		}
-		
-		#resume-container a { color: black; text-decoration: underline; }
-		
-		#resume-container hr { border-bottom: 2px solid black; }
-		
-		#resume-container header { 
-			background: #4caf7c; 
-			padding: 40px 0 20px; 
-			position: relative;
-			z-index: 1;
-			border-top-left-radius: 7px; 
-			border-top-right-radius: 7px; 
-		}
-		
-		
-		#resume-container header:after {
-			background: inherit;
-			content: '';
-			display: block;
-			height: 50%;
-			left: 0;
-			position: absolute;
-			right: 0;
-			z-index: -1;
-			-webkit-backface-visibility: hidden;
-		}
-		
-		
-		#resume-container header:after {
-		  bottom: 0;
-		  -webkit-transform: skewY(-2.5deg);
-				  transform: skewY(-2.5deg);
-		  -webkit-transform-origin: 100%;
-				  transform-origin: 100%;
-		}
-
-		#resume-container header .resume-portfolio-pic { border-radius: 50%; height: 200px; width: 200px; margin: 0 auto; display: block; }
-
-		.resume-name { text-align: center; color: white; padding-top: 50px; }
-		
-		#resume-container .contact-info { text-align: center; padding: 10px 0; margin: 20px 0; color: white; }
-		#resume-container .contact-info a  { color: white; }
-		
-		
-		#resume-container #summary { padding: 50px 10px 0; }
-		#resume-container #summary .summary { padding: 0 20px; }
-		
-		#resume-container .skill-text { text-align: center; }
-		
-		#resume-container .contact-info .email, #resume-container .contact-info .phone { margin-bottom: 20px; }
-		
-		
-		#experience { padding: 0 20px; }
-		
-		#experience h2, #experience h3, #experience h4 { margin: 0 !important; }
-	
-		#experience .past-employer { padding: 20px 0; }
-		#experience .employer-img { display: block; margin: 0 auto; padding-top: 20px; }
-		#experience .short-description { /* padding-top: 20px; */ }
-		
-		
-		#education { padding: 0 20px; }
-		
-		#education .past-school { padding: 20px 0; }
-		
-		#education .past-school .left { text-align: center; }
-		
-		#computers { padding: 0 20px; }
-		
-		
-		#resume-container .pills { padding-left: 0; }
-		#resume-container .pills a { color: black; }
-		#resume-container .pills li { 
-			box-shadow: 0px 1px 1px #CCC;
-			transition: all 0.07s ease 0s;
-			display: inline-block;
-			border: 0px none;
-			margin: 0px 5px 5px 0px;
-			padding: 0px;
-			font-size: 13px;
-			line-height: 17px;
-			color: black;
-			font-weight: normal;
-			background: #F1F1F1 none repeat scroll 0% 0%;
-			border-radius: 2px;
-			text-decoration: none;
-		}
-		#resume-container .pills li .wrap {
-			display: inline-block;
-			padding: 5px 10px 4px;
-		}
-		
-		#references { padding: 0 20px; margin: 20px 0; text-align: center; }
-		
-		
-		
-		#resume-container .linkedin-link { margin-bottom: 10px; }
-		#resume-container .linkedin-link span { display: block; color: black; text-align: center; }
-		
-		
-
-
-
-
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	~~~~~MEDIA QUERIES~~~~
-	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-	@media only screen and ( min-width: 1100px ) and ( max-width: 1405px) {
-		
-	}
-	
-	@media only screen and ( min-width: 992px ) {
-		#experience .col-md-7 { border-left: 2px solid black; }
-		#education .col-md-8 { border-left: 2px solid black; }
-	}
-	
-	
-	@media only screen and (max-width: 1200px) {
-		
-	}
-	
-	
-	@media only screen and (max-width: 990px) {
-	
-		.past-employer { border-bottom: 1px solid #dedede; margin-bottom: 20px; }
-		.past-employer:last-child { border-bottom: none; margin-bottom: 0; }
-		
-		.past-school { border-bottom: 1px solid #dedede; }
-		.past-school:last-child { border-bottom: none !important; }
-		
-		#references .col-md-4 { margin-bottom: 20px; }
-		
-		#experience .employer-img { padding-top: 0; max-width: 200px; }
-		
-		
-	}
-	
-	@media only screen and (max-width: 960px) {
-		
-	}
-	
-	@media only screen and ( max-width: 768px ) {
-		
-	}
-		
-	@media only screen and (max-width: 665px) {
-		.specializations ul { padding-left: 0; }
-		.skill-text { margin-bottom: 0; }
-	}
-		
-	@media only screen and (max-width: 567px) {
-		#computers ul { padding-left: 10px; }
-	}
-	
-	@media only screen and (max-width: 420px) {
-		#extra-skills { display: none; }
-	}
-	
-  </style>
-
-  
-<script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-2c7831bb44f98c1391d6a4ffda0e1fd302503391ca806e7fcc7b9b87197aec26.js"></script>
-<script src="https://cpwebassets.codepen.io/assets/editor/iframe/iframeConsoleRunner-6d8bf8b4b479137260842506acbb12717dace0823c023e08b96360e60b0840d9.js"></script>
-<script src="https://cpwebassets.codepen.io/assets/editor/iframe/iframeRefreshCSS-44fe83e49b63affec96918c9af88c0d80b209a862cf87ac46bc933074b8c557d.js"></script>
-<script src="https://cpwebassets.codepen.io/assets/editor/iframe/iframeRuntimeErrors-4f205f2c14e769b448bcf477de2938c681660d5038bc464e3700256713ebe261.js"></script>
 </head>
 
 <body>
-  <div class="container">
-  
-  <link rel="stylesheet" href="sichello.css">
-  <div id="resume-container" class="clearfix">
-						<!-- start of resume-->
-						<header class="header">
-							<div class="row">
-								<div class="col-md-4">
-									<img class="resume-portfolio-pic" src="family.jpeg">
-								</div>
-								<div class="col-md-8">
-									<div class="resume-name">
-										<h1>Lee Sichello</h1>
-										<span>Senior Technical Application Scientist</span>
-									</div>
-								</div>
-							</div>
-							<div class="row">
-								<div class=" contact-info">
-									<div class="col-md-4 location">
-										<address>
-											<i class="fa fa-map-marker"></i> Vancouver Island, Canada
-										</address>
-									</div>
-									<div class="col-md-4 email">
-										<i class="fa fa-paper-plane"></i>
-										<a href="mailto:[email]?subject=Mail from Jims Resume">info@sichello.com</a>
-									</div>
-									<div class="col-md-4 phone">
-										<i class="fa fa-phone"></i>
-										<a href="tel:778-350-2557">xxx.xxx.xxxx</a>
-									</div>
-								</div>
-							</div>
-						</header>
-						
-						<section id="summary">
-							 
-							
-							<div class="row">
-								<div class="summary">
-									<div class="col-md-4 summary-box">
-										<h2>Summary</h2>
-										<p>Site under construction. 
-										<!--I'm a highly organized problem solver with over 12 years experience in tech. -->
-										</p>
-									</div>
-									<div class="col-md-4 skills">
-											
-											<h2>Skills</h2>
-											<!-- 1 -->
-											<div class="progress-bar-holder row">
-												<div class="col-md-6 col-sm-6">
-													<p class="skill-text">Linux Administration</p>
-												</div>
-												<div class="col-md-6 col-sm-6">
-													<div class="progress">
-													  <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">100%</div>  
-													</div>
-												</div>
-											</div>
-											<!-- 2 -->
-											<div class="progress-bar-holder row">
-												<div class="col-md-6 col-sm-6">
-													<p class="skill-text">Troubleshooting</p>
-												</div>
-												<div class="col-md-6 col-sm-6">
-													<div class="progress">
-													  <div class="progress-bar" role="progressbar" aria-valuenow="92" aria-valuemin="0" aria-valuemax="100" style="width: 90%;">90%</div>  
-													</div>
-												</div>
-											</div>
-											<!-- 7 -->
-											<div class="progress-bar-holder row">
-												<div class="col-md-6 col-sm-6">
-													<p class="skill-text">Technical Account Management</p>
-												</div>
-												<div class="col-md-6 col-sm-6">
-													<div class="progress">
-														<div class="progress-bar" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: 80%;">80%</div>  
-													</div>
-												</div>
-											</div>
 
-												<!-- 5 -->
-											<div class="progress-bar-holder row">
-												<div class="col-md-6 col-sm-6">
-													<p class="skill-text">Project Management</p>
-												</div>
-												<div class="col-md-6 col-sm-6">
-													<div class="progress">
-														<div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%;">80%</div>  
-													</div>
-												</div>
-											</div>
+  <!-- ======= Mobile nav toggle button ======= -->
+  <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
 
-											<!-- 3 -->
-											<div class="progress-bar-holder row">
-												<div class="col-md-6 col-sm-6">
-													<p class="skill-text">Networking</p>
-												</div>
-												<div class="col-md-6 col-sm-6">
-													<div class="progress">
-													  <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%;">70%</div>  
-													</div>
-												</div>
-											</div>
-											<!-- 4 -->
-											<div class="progress-bar-holder row">
-												<div class="col-md-6 col-sm-6">
-													<p class="skill-text">Dev Ops</p>
-												</div>
-												<div class="col-md-6 col-sm-6">
-													<div class="progress">
-													  <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">60%</div>  
-													</div>
-												</div>
-											</div>
-											<!-- 6 -->
-											<div class="progress-bar-holder row">
-												<div class="col-md-6 col-sm-6">
-													<p class="skill-text">Amazon Web Services</p>
-												</div>
-												<div class="col-md-6 col-sm-6">
-													<div class="progress">
-													  <div class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%;">50%</div>  
-													</div>
-												</div>
-											</div>
-									</div>
-									<div class="col-md-4 specializations">
-										<h2>Specializations</h2>
-										<ul>
-                      <li>Specialization 1</li>
-                      <li>Specialization 2</li>
-                      <li>Specialization 3</li>
-                      <li>Specialization 4</li>
-                      <li>Specialization 5</li>
-                      <li>Specialization 6</li>
-                      <li>Specialization 7</li>
-                      <li>Specialization 8</li>
-                      <li>Specialization 9</li>
-                      <li>Specialization 10</li>                    
-									</div>
-								</div>
-							</div>
-							<hr>
-						</section>
-						
-						
-						
-						
-						<section id="experience">
-						
-						
-						
-						
-							<div class="">
-								<h2>Work Experience</h2>
-								<!-- current -->
-								<div class="past-employer row">
-									<div class="col-md-2">
-										
-										<img class="employer-img" src="http://placehold.it/100x30">
-									</div>
-									<div class="col-md-3 ">
-										<h3 class="business-name">Illumina Inc</h3>
-										<i>Oct 2016 - Present </i><br>
-										<span>Remote, British Columbia</span>
-									</div>
-									<div class="col-md-7 ">
-										<h4 class="position">Senior Technical Application Scienist</h4>
-										<p class="short-description">Description</p>
-									</div>
-								</div>
-								
-								
-<!-- 1 -->
-								<div class="past-employer row">
-									<div class="col-md-2">
-										
-										<img class="employer-img" src="http://placehold.it/100x30">
-									</div>
-									<div class="col-md-3 ">
-										<h3 class="business-name">iQmetrix USA</h3>
-										<i>April 2015 - Oct 2016 </i><br>
-										<span>Davidson, Norh Carolina</span>
-									</div>
-									<div class="col-md-7 ">
-										<h4 class="position">Technical Project Manager</h4>
-										<p class="short-description">Description</p>
-									</div>
-								</div>
-             
-<!-- 2 -->
-								<div class="past-employer row">
-									<div class="col-md-2">
-										
-										<img class="employer-img" src="http://placehold.it/100x30">
-									</div>
-									<div class="col-md-3 ">
-										<h3 class="business-name">iQmetrix Canada</h3>
-										<i>May 2013 - April 2015 </i><br>
-										<span>Regina, Saskatchewan</span>
-									</div>
-									<div class="col-md-7 ">
-										<h4 class="position">QA Analyst</h4>
-										<p class="short-description">Description</p>
-									</div>
-								</div>
-                
- <!-- 3 -->
-								<div class="past-employer row">
-									<div class="col-md-2">
-										
-										<img class="employer-img" src="http://placehold.it/100x30">
-									</div>
-									<div class="col-md-3 ">
-										<h3 class="business-name">Saskatchewan Cancer Agency</h3>
-										<i>Jan 2012 - May 2013</i><br>
-										<span>Regina, Saskatchewan</span>
-									</div>
-									<div class="col-md-7 ">
-										<h4 class="position">Systems Administration and Software Development </h4>
-										<p class="short-description">Description</p>
-									</div>
-								</div>
-                
- <!-- 4 -->
-								<div class="past-employer row">
-									<div class="col-md-2">
-										
-										<img class="employer-img" src="http://placehold.it/100x30">
-									</div>
-									<div class="col-md-3 ">
-										<h3 class="business-name">University of Regina</h3>
-										<i>May 2010 - January 2012 </i><br>
-										<span>Regina, Saskatchewan</span>
-									</div>
-									<div class="col-md-7 ">
-										<h4 class="position">NSERC Research Assistant</h4>
-										<p class="short-description">Description </p>
-									</div>
-								</div>
-                
-                
-								
-							</div>
-						
-							<hr>
-						</section>
-						
-						
-						
-						<section id="education">
-							<h2>Education</h2>
-							<div class="past-school row">
-								<div class="col-md-4 left">
-									<h3 class="school-name">University of Regina</h3>
-									<i>2007 - 2012</i><br>
-									<span>Regina, Saskatchewan</span>
-								</div>
-								<div class="col-md-8 ">
-									<h4 class="position">Bachelor of Science, Applied Physics</h4>
-									<p class="short-description">Graduated with great disctinction. Studies included a mix of physics, mathematics and engineering with emphasis on computer science and electronics.</p>
-								</div>
-							</div>
-							<div class="past-school row">
-								<div class="col-md-4 left">
-									<h3 class="school-name">University of Regina</h3>
-									<i>2011 - 2102</i><br>
-									<span>Regina, Saskatchewan</span>
-								</div>
-								<div class="col-md-8 ">
-									<h4 class="position">Diploma, Computer Science</h4>
-									<p class="short-description"></p>
-								</div>
-							</div>
-              
-              
-              
-							<hr>
-						</section>
-						
-						
-						<section id="computers">
-							<div class="row">
-								<div class="col-md-6">
-									<h5>Hardware Capability</h5>
-									<ul>
-                    <li>Proin eget tortor risus. Nulla porttitor accumsan tincidunt. Proin eget tortor risus.</li>									
-									</ul>
-								</div>
-								<div class="col-md-6">
-									<h5>Software Capability</h5>
-									<ul>
-                    <li>Proin eget tortor risus. Nulla porttitor accumsan tincidunt. Proin eget tortor risus.</li>
-									</ul>
-								</div>
-							</div>
-							
-							
-							<div class="row">
-								<div class="col-md-6">
-							
-									<h5>Networking Capability</h5>
-									<ul>
-                    <li>Proin eget tortor risus. Nulla porttitor accumsan tincidunt. Proin eget tortor risus.</li>
-                    </ul>
-							
-							
-								</div>
-								<div class="col-md-6">
-								
-									<h5>Security Capability</h5>
-									<ul>
-                    <li>Proin eget tortor risus. Nulla porttitor accumsan tincidunt. Proin eget tortor risus.</li>
-									</ul>
-								</div>
-							</div>
-						
-							<div class="row">
-								<div class="col-md-6">
-									<h5>Project Management</h5>
-									<ul>
-                    <li>Proin eget tortor risus. Nulla porttitor accumsan tincidunt. Proin eget tortor risus.</li>
-                  </ul>
-								</div>
-								<div class="col-md-6">
-									<h5>Technical Acount Management</h5>
-									<ul>
-                    <li>Proin eget tortor risus. Nulla porttitor accumsan tincidunt. Proin eget tortor risus.</li>
-									</ul>
-							
-								</div>
-							</div>
-							<hr>
-						</section>
-								
-					</div><!-- end resume -->
-</div>
-					
-					
-  
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-<script src="visitorCounter.js"></script>
+  <!-- ======= Header ======= -->
+  <header id="header">
+    <div class="d-flex flex-column">
+
+      <div class="profile">
+        <img src="assets/img/me-rosie.jpeg" alt="" class="img-fluid rounded-circle">
+        <h1 class="text-light"><a href="index.html">Lee Sichello</a></h1>
+        <div class="social-links mt-3 text-center">
+          <a href="https://www.linkedin.com/in/lee-sichello-90542646/" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+          <a href="https://github.com/sichello" class="github"><i class="bx bxl-github"></i></a>
+          <a href="mailto:info@sichello.com" class="email"><i class="bx bx-mail-send"></i></a>
+          <a href="https://dev.to/" class="dev-to"><i class="bx bxl-dev-to"></i></a>
+        </div>
+      </div>
+
+      <nav id="navbar" class="nav-menu navbar">
+        <ul>
+          <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
+          <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About</span></a></li>
+          <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Resume</span></a></li>
+          <li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Contact</span></a></li>
+        </ul>
+      </nav><!-- .nav-menu -->
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
+    <div class="hero-container" data-aos="fade-in">
+      <h1>Lee Sichello</h1>
+      <p>I'm a <span class="typed" data-typed-items="Systems Engineer, Scientist, IT Guru, Problem Solver, Team Player"></span></p>
+    </div>
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>About</h2>
+          <p>Hi there, I'm Lee. This site is still under construction so please bear with me.</p>   
+        </div>
+
+        <div class="row">
+          <div class="col-lg-4" data-aos="fade-right">
+            <img src="assets/img/me-rosie.jpeg" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
+            <h3>Technical Application Scientist</h3>
+            <p>
+              I am fortunate to have an engaging role with a company whose vision I fully stand behind.             </p>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Section -->
+
+    <!-- ======= Facts Section ======= -->
+    <section id="facts" class="facts">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Facts</h2>
+          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+        </div>
+
+        <div class="row no-gutters">
+
+          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up">
+            <div class="count-box">
+              <i class="bi bi-calendar"></i>
+              <span data-purecounter-start="0" data-purecounter-end="13" data-purecounter-duration="1" class="purecounter"></span>
+              <p><strong>Years</strong> tech experience</p>
+            </div>
+          </div>
+
+
+          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up" data-aos-delay="200">
+            <div class="count-box">
+              <i class="bi bi-bug"></i>
+              <span data-purecounter-start="0" data-purecounter-end="10000" data-purecounter-duration="1" class="purecounter"></span>
+              <p><strong>+ Hours</strong> troubleshooting</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up" data-aos-delay="100">
+            <div class="count-box">
+              <i class="bi bi-ear"></i>
+              <span data-purecounter-start="0" data-purecounter-end="8" data-purecounter-duration="1" class="purecounter"></span>
+              <p><strong>Years</strong> supporting enterprise systems and accounts</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up" data-aos-delay="300">
+            <div class="count-box">
+              <i class="bi bi-percent"></i>
+              <span data-purecounter-start="0" data-purecounter-end="100" data-purecounter-duration="1" class="purecounter"></span>
+              <p><strong>Team Player</strong> </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Facts Section -->
+
+    <!-- ======= Skills Section ======= -->
+    <section id="skills" class="skills section-bg">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Skills</h2>
+          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+        </div>
+
+        <div class="row skills-content">
+
+          <div class="col-lg-6" data-aos="fade-up">
+
+            <div class="progress">
+              <span class="skill">Troubleshooting <i class="val">100%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+
+            <div class="progress">
+              <span class="skill">Linux Administration <i class="val">90%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+
+            <div class="progress">
+              <span class="skill">Networking <i class="val">75%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+
+            <div class="progress">
+              <span class="skill">Systems Engineering <i class="val">80%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+
+            <div class="progress">
+              <span class="skill">Project Management <i class="val">75%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+
+            <div class="progress">
+              <span class="skill">Cloud Operations <i class="val">55%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Skills Section -->
+
+    <!-- ======= Resume Section ======= -->
+    <section id="resume" class="resume">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Resume</h2>
+          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+        </div>
+
+        <div class="row">
+          
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+            <h3 class="resume-title">Professional Experience</h3>
+            <div class="resume-item">
+              <h4>Senior Technical Application Scientist</h4>
+              <h5>Oct 2016 - Present (~8 yr) </h5>
+              <p><em>Illumina Inc, San Diego, California</em></p>
+              <ul>
+                <li>Fully remote employee</li>
+                <li>L2/L3 support of bioinformatics software and hardware systems</li>
+              </ul>
+            </div>
+            <div class="resume-item">
+              <h4>Technical Project Manager</h4>
+              <h5>Apr 2015 - Oct 2016 (1 yr 7 mos)</h5>
+              <p><em>iQmetrix USA, Davidson, North Carolina</em></p>
+              <ul>
+                <li>Description</li>
+              </ul>
+            </div>
+            <div class="resume-item">
+              <h4>Quality Assurance Analyst</h4>
+              <h5>May 2013 - Apr 2015 (2 yr)</h5>
+              <p><em>iQmetrix, Regina, SK</em></p>
+              <ul>
+                <li>Description</li>
+              </ul>
+            </div>
+            <div class="resume-item">
+              <h4>Systems Engineer</h4>
+              <h5>Jan 2012 - May 2013 (1 yr 5 mos)</h5>
+              <p><em>Saskatchewan Cancer Agency, Regina, SK</em></p>
+              <ul>
+                <li>Description</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-lg-6" data-aos="fade-up">
+            
+            <h3 class="resume-title">Education</h3>
+            <div class="resume-item">
+              <h4>Bachelor of Science, Applied Physics</h4>
+              <h5>2007 - 2012</h5>
+              <p><em>University of Regina</em></p>
+              <p>Graduated with great distinction. Emphasis in computational modeling and electronics. </p>
+            </div>
+            <div class="resume-item">
+              <h4>Certificate, Computer Science</h4>
+              <h5>2011 - 2012</h5>
+              <p><em>University of Regina</em></p>
+            </div>
+          </div>
+
+          <div class="col-lg-6" data-aos="fade-up">
+            
+            <h3 class="resume-title">Volunteering</h3>
+            <div class="resume-item">
+              <h4>Shoreline Rehabilitation</h4>
+              <h5>2019 - Present (~5 yr)</h5>
+              <p><em>Living Oceans Society </em></p>
+              <p>Shoreline cleanups and aerial extractions from remote areas of Vancouver Island</p>
+             </div>
+            <div class="resume-item">
+              <h4>Volunteer Firefighter</h4>
+              <h5>2019 - 2022 (3 yr)</h5>
+              <p><em>Port Hardy Fire Rescue</em></p>
+              <p>Interior firefighter and emergency vehicle operator with air brake endorsement</p>
+             </div>
+          </div>
+
+          <div class="col-lg-6" data-aos="fade-up">
+            
+            <h3 class="resume-title">Certificactions</h3>
+            <div class="resume-item">
+              <h4>Red Hat Certified Systems Administrator (RHCSA)</h4>
+              <h5>2023</h5>
+              <p><em>Red Hat version 9 </em></p>
+             </div>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Resume Section -->
+
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Contact</h2>
+        </div>
+
+        <div class="row" data-aos="fade-in">
+
+          <div class="col-lg-5 d-flex align-items-stretch">
+            <div class="info">
+              <div class="address">
+                <i class="bi bi-geo-alt"></i>
+                <h4>Location:</h4>
+                <p>Campbell River, British Columbia, Canada</p>
+              </div>
+
+              <div class="email">
+                <i class="bi bi-envelope"></i>
+                <h4>Email:</h4>
+                <p>info@sichello.com</p>
+              </div>
+
+            </div>
+
+          </div>
+
+
+
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/typed.js/typed.umd.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
 
 </body>
-
-<div id="visitorsCount" lass="col-md-8">
-	Page Visits: 
-</div>
-	
-
 
 </html>
