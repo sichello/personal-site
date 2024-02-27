@@ -10,7 +10,7 @@
         const count = data.count.N;
 
         // Update the DOM with the count
-        document.getElementById('visitorsCount').innerText = `You are visitor number: ${count} to my site.`;
+        document.getElementById('visitorsCount').innerText = `<h4> You are visitor number: <b>${count}</b> to my site. </h4>`;
     } catch (error) {
         console.error('Error updating visitors count:', error);
       }
