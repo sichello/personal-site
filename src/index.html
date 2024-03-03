@@ -388,19 +388,19 @@
           </div>
             <p>
               <br>
-              If you want to nerd out a bit then keep reading. I am not really a front end developer. I dabble, but it's never been my role. I built this website as a project specifically to learn more about Terraform and serverless AWS architecture. 
+              I'm not really a front end developer. I dabble, but it's never been my role. I built this website as a project specifically to learn more about Terraform and serverless AWS architecture. 
               <br><br>
-              As you can see from the architecture below, there's a surprising amount going on under the hood. The entire site is hosted for $0/month in AWS and is completely serverless with high availability from Cloudfront CDN. In order to provide the vistor counter you see down in the footer of the page, the site also includes a serverless REST API which is backed by Lambda and DynamoDB. Best of all, by using Terraform for IaC, the site content and all underlying AWS infrastructure can be modified, tested, and deployed in seconds via a push to my <b><a href="https://github.com/sichello/sichello"> GitHub repo </a></b> with Github actions for CI/CD. 
+              As you can see from the architecture below, there's a surprising amount going on under the hood. The entire site is hosted for $0/month in AWS and is completely serverless with high availability from Cloudfront CDN. In order to provide the visitor counter you see down in the footer of the page, the site also includes a serverless REST API which is backed by Lambda and DynamoDB. Best of all, by using Terraform for IaC, the site content and all underlying AWS infrastructure can be modified, tested, and deployed in seconds via a push to my <b><a href="https://github.com/sichello/sichello"> GitHub repo </a></b> with Github actions for CI/CD. 
               <br><br>
               <img src="assets/img/architecture.png" class="img-fluid" alt="" style="display: block; margin: auto;">
               <br><br>
-              Is it completely overengineered? Absolutely, but that's the whole point. It's a small scale model of what you'd see in a much larger scale web application. Here's how it all works:
+              Is it completely overengineered? Absolutely, but that's the whole point. It's a small scale model of what you'd see in a larger scale web application. Here's how it all works:
               <ol>
-                <li>User's browser makes a request to load sichello.com</li>
-                <li>Browser sends request to Route53 which resolves the DNS to reach nearest Cloudfront CDN edge location.</li>
-                <li>CloudFront forwards the request to an S3 bucket containinh the website files and retrieves its contents.</li>
+                <li>User makes a request to load sichello.com in the browser.</li>
+                <li>Request is sent to Route53 for DNS which resolves to the nearest Cloudfront CDN edge location.</li>
+                <li>Cloudfront forwards the request to an S3 bucket containing the website files and retrieves its contents.</li>
                 <li>The S3 bucket with frontend code is protected with Origin Access Identity (OAI) which prevents direct access to the bucket.</li>
-                <li>JavaScript in the frontend sends a POST request to API Gateway to retrieve the number of visitors.</li>
+                <li>JavaScript in the frontend sends a POST request to an API Gateway to retrieve the number of visitors for the footer.</li>
                 <li>The API Gateway, protected by Cross Origin Resource Sharing (CORS) forwards the POST request to a Lambda function.</li>
                 <li>The Lambda function, written in Python, increments the visitor counter in the DynamoDB and returns the count.</li>
                 <li>The visitor count is displayed in the footer.</li>
