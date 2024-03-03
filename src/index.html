@@ -88,9 +88,9 @@
           </div>
           <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
             <p>
-            Hi there, I'm Lee. I am a software and IT expert with enterprise experience in most areas of the SDLC and operations. I have worked a variety of technical roles in the US and Canada. 8 years ago I was fortunate to find my niche in biotech, working remotely from British Columbia. My family lives in the coastal city of Campbell River on Northeastern Vancouver Island and we love our community. When I'm not working or playing with my kids I can usually be found tinkering on home improvements, or spending time in the Ocean.
+            Hi there, I'm Lee. I am a software and IT expert with enterprise experience in most areas of the SDLC and operations. I have worked a variety of technical roles in the US and Canada. Eight years ago I was fortunate to find my niche in biotech, working remotely from British Columbia. My family lives in the coastal city of Campbell River on Northeastern Vancouver Island and we love our community. When I'm not working or playing with my kids I can usually be found tinkering on home improvements or spending time in the Ocean.
             <br><br>
-            I am an enthusiastic learner and communicator, capable of diving deep into technical topics while translating low level nuance to high level audiences. I enjoy mentoring others and creating tools to improve efficiency, but above all, I love solving problems. Whether I am managing infrastructure, deploying changes, supporting a key account, troubleshooting a server or developing something brand new - I appreciate interesting problems and take an academic interest in researching solutions.
+            I am an enthusiastic learner and communicator, capable of diving deep into technical topics while translating low level nuance to high level audiences. I enjoy mentoring others and creating tools to improve efficiency, but above all, I love solving problems. Whether managing infrastructure, deploying changes, supporting a key account, troubleshooting a server or developing something new - I appreciate challenging problems and take an academic interest in researching solutions.
             <br><br>
             </p>
           </div>
@@ -227,7 +227,7 @@
               <h4>Senior Technical Application Scientist</h4>
               <h5>Jan 2018 - Present (6+ yr) </h5>
               <p><em>Illumina Inc, San Diego, California</em></p>
-              <p>Illumina's primary revenue is the sale of laboratory instruments for the purpose of genetic analysis. Our instruments output a massive amount of genetic data which requires subsequent bioinformatic analysis in order to extract meaningful interpretations. Illumina also offers a variety of solutions to meet these needs: some solutions are SaaS offerings and others run as proprietary hardware or on-prem servers. The range of solutions in my scope has steadily grown to include most of our portfolio. </p>
+              <p>Illumina's primary revenue is the sale of laboratory instruments for the purpose of genetic analysis. Our instruments output a massive amount of genetic data which requires subsequent bioinformatic analysis in order to extract meaningful interpretations. Illumina also offers a variety of solutions to meet these needs: some solutions are SaaS offerings, others run as proprietary hardware or on-prem servers. The range of solutions in my scope has steadily grown to include most of our portfolio. </p>
 
               <ul>
                   <li>Subject matter expert specializing in broad range of hardware and software solutions</li>
@@ -264,7 +264,7 @@
               <h5>Apr 2015 - Oct 2016 (1 yr 7 mos)</h5>
               <p><em>iQmetrix USA, Davidson, North Carolina</em></p>
               <ul>
-                <li>Relocated from iQmetrix Canada to US headquarters in Davidson, North Carolina</li>
+                <li>Relocated from iQmetrix Canadian to US headquarters in Davidson, North Carolina</li>
                 <li>Hybrid technical project manager/release manager for enterprise features</li>
                 <li>Identify client requirements and manage the timely delivery of solutions from design to release phases</li>
                 <li>Coordination of distributed technical teams: development, database, operations, QA, support</li>
@@ -388,27 +388,28 @@
           </div>
             <p>
               <br>
-              I'm not really a front end developer. I dabble, but it's never been my role. I built this website as a project specifically to learn more about Terraform and serverless AWS architecture. 
+              This website is a project I took on to learn about Terraform and serverless design in AWS. Prior to this I had never used Terraform and had always just manually deployed any cloud resources I needed. I had also never built a fully serverless cloud application in AWS so there was plenty to to learn along the way. 
               <br><br>
-              As you can see from the architecture below, there's a surprising amount going on under the hood. The entire site is hosted for $0/month in AWS and is completely serverless with high availability from Cloudfront CDN. In order to provide the visitor counter you see down in the footer of the page, the site also includes a serverless REST API which is backed by Lambda and DynamoDB. Best of all, by using Terraform for IaC, the site content and all underlying AWS infrastructure can be modified, tested, and deployed in seconds via a push to my <b><a href="https://github.com/sichello/sichello"> GitHub repo </a></b> with Github actions for CI/CD. 
+              As you can see from the architecture diagram below, there's a suprising amount going on under the hood. The entire site is hosted for $0/month in AWS and is completely serverless with high speed and availability from Cloudfront CDN. In order to provide the visitor counter you see down in the footer of the page, the implementation also includes a serverless API that is backed by Lambda and DynamoDB. Best of all, by using Terraform for IaC, the site content and all underlying AWS infrastructure can be modified, tested, and deployed in seconds via a push to my <b><a href="https://github.com/sichello/sichello"> GitHub repo </a></b> for CI/CD. 
               <br><br>
               <img src="assets/img/architecture.png" class="img-fluid" alt="" style="display: block; margin: auto;">
               <br><br>
-              Is it completely overengineered? Absolutely, but that's the whole point. It's a small scale model of what you'd see in a larger scale web application. Here's how it all works:
+              Couldn't I have just deployed a static resume more quickly using GitHub pages, you ask? Yes, I could have. Is my site completely overengineered for the task? Absolutely, but that's the whole point! It's a small scale implementation of what you'd see in a larger scale web application. Here's how it works:
               <ol>
-                <li>User makes a request to load sichello.com in the browser.</li>
-                <li>Request is sent to Route53 for DNS which resolves to the nearest Cloudfront CDN edge location.</li>
-                <li>Cloudfront forwards the request to an S3 bucket containing the website files and retrieves its contents.</li>
-                <li>The S3 bucket with frontend code is protected with Origin Access Identity (OAI) which prevents direct access to the bucket.</li>
+                <li>User requests to load sichello.com in their browser.</li>
+                <li>DNS request is sent to Route53, which resolves to the nearest Cloudfront CDN edge location.</li>
+                <li>Cloudfront forwards the request to an S3 bucket containing the the frontend files and they are return to the browser.</li>
+                <li>The S3 bucket with frontend code is protected with Origin Access Identity (OAI), which prevents direct access to the bucket.</li>
                 <li>JavaScript in the frontend sends a POST request to an API Gateway to retrieve the number of visitors for the footer.</li>
-                <li>The API Gateway, protected by Cross Origin Resource Sharing (CORS) forwards the POST request to a Lambda function.</li>
+                <li>The API Gateway, protected by Cross Origin Resource Sharing (CORS), forwards the POST request to a Lambda function.</li>
                 <li>The Lambda function, written in Python, increments the visitor counter in the DynamoDB and returns the count.</li>
                 <li>The visitor count is displayed in the footer.</li>
-                <li>A Github repo provides code version control and CI/CD through Github actions.</li>
+                <li>A Github repo provides code version control and CI/CD through a Github Actions intergration with Terraform.</li>
                 <li>Terraform deploys the AWS infrastructure.</li>
-            </ol>            
+            </ol>  
+            <br><br>
+            
             </p>
-
             <br><br>
             <hr>
             <br><br>

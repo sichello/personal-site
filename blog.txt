@@ -1,9 +1,9 @@
-Chunk 1: Building the Front End - Steps 1-6
-- Still need to build a professional looking resume site. But Haven't decided on framework and content. Loop back on this later 
-- Ran into a ~3 day delay transferring the sichello.com domain from GoDaddy to R53. This was an issue with NS recordconfigurations. I had configured the NS record correctly the hosted zone in R53 correctly but didn't realize the domain itself needs to have the NS updated as well. 
+Chunk 1: Building the Front End -
+- Began with open source template for the HTML/CSS of the resume 
+- Ran into a ~3 day delay transferring the sichello.com domain from GoDaddy to R53. This was an issue with NS recordc onfigurations. I had configured the NS record correctly the hosted zone in R53 correctly but didn't realize the domain itself needs to have the NS updated as well. 
 
 
-Chunk 2: Building the API  - Steps 8-12
+Chunk 2: Building the API 
 - Architecture: For the vistor counter, an Api Gateway triggers a Lambda function to update DynamoDB table with the counter 
 - Database: sturggled for awhile figuring out what the correct structure for the DynamoDB table should be. This was my first time using NoSQL DB and that took a bit of research in LinkedIn learning. In the end I went with one table called "visitorCounter" which uses a partition key called "site" , this key has one number attibute called "count". For example: the visitorCounter table for site:sichello contains value count:xxx where xxx is the visitor count. 
 - Lambda function: python function called "increment_visitors" which has a lambda_handler that handles GET and POST requests. GET will return the current visitor count and POST will increment the visitor count then return the updated value. For all other request methods, a 400 error is returned.  
@@ -13,7 +13,7 @@ Chunk 2: Building the API  - Steps 8-12
             'Access-Control-Allow-Credentials' : 'true',
 Also hit a small hurdle with configuring the API to use custom domain name api.sichello.com instead of the default AWS URL provided. This was due to an error in my Route 53 CName entry. 
 
-Chunk 3: FrontEnd/Backend Integration - Steps 7,11
+Chunk 3: FrontEnd/Backend Integration 
 - Javascript: this section was very straightforward. Added a divider with id="visitorsCount"  to the HTML. I then embdeed a client-side script visitorCounter.js which performs a POST to the /visitorCounter API then parses the JSON reply to get the updated vistor count and update the vistor counter in the DOM with this value. 
 - To Do: 
     - write python unit tests for the code 
