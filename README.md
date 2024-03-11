@@ -1,6 +1,6 @@
-Check out my personal site at [sichello.com](http://sichello.com) 
+# Check out my personal site at [sichello.com](http://sichello.com) 
 
-#About This Site
+## About This Site
 
 This website is a project I used to learn more about Terraform and serverless design in AWS. Prior to this I had never used Terraform and had always just manually deployed any cloud resources I needed. I had also never built a fully serverless application in AWS so I had learned along the way.
 
