@@ -10,12 +10,12 @@ resource "aws_dynamodb_table" "sichello-dynamodb-table" {
   }
 }
 
-resource "aws_dynamodb_table_item" "sichello" {
-  table_name = aws_dynamodb_table.sichello-dynamodb-table.name
-  hash_key   = aws_dynamodb_table.sichello-dynamodb-table.hash_key
+# resource "aws_dynamodb_table_item" "sichello" {
+#   table_name = aws_dynamodb_table.sichello-dynamodb-table.name
+#   hash_key   = aws_dynamodb_table.sichello-dynamodb-table.hash_key
 
-  # item = jsonencode({
-  #   "site": {"S": "sichello.com"},
-  #   "count": {"N": "0"}
-  # })
-}
+#   # item = jsonencode({
+#   #   "site": {"S": "sichello.com"},
+#   #   "count": {"N": "0"}
+#   # })
+# }
