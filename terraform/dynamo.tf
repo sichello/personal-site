@@ -18,5 +18,4 @@ resource "aws_dynamodb_table_item" "sichello" {
     "site": {"S": "sichello.com"},
     "count": {"N": "0"}
   })
-  overwrite = false
 }
