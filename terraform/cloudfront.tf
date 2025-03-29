@@ -14,7 +14,7 @@ resource "aws_cloudfront_distribution" "cloudfront_distro" {
   is_ipv6_enabled     = true
   retain_on_delete    = true
 
-  aliases = ["${var.root_domain_name}", "www.${var.root_domain_name}"]
+/* aliases = ["${var.root_domain_name}", "www.${var.root_domain_name}"] */ 
 
   default_cache_behavior {
     target_origin_id = "${var.root_domain_name}-Origin"
