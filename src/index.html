@@ -39,7 +39,7 @@
     <div class="d-flex flex-column">
 
       <div class="profile">
-        <img src="assets/img/me-rosie.jpeg" alt="" class="img-fluid rounded-circle">
+        <img src="assets/img/me.jpg" alt="" class="img-fluid rounded-circle">
         <h1 class="text-light"><a href="index.html">Lee Sichello</a></h1>
         <div class="social-links mt-3 text-center">
           <a href="https://www.linkedin.com/in/lee-sichello-90542646/" class="linkedin"><i class="bx bxl-linkedin"></i></a>
@@ -52,11 +52,10 @@
       <nav id="navbar" class="nav-menu navbar">
         <ul>
           <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
-          <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About</span></a></li>
+          <li><a href="#site" class="nav-link scrollto"><i class="bx bx-paint-roll"></i> <span>About This Site</span></a></li>
+          <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>Me</span></a></li>
           <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Resume</span></a></li>
           <li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Contact</span></a></li>
-          <li><a href="#site" class="nav-link scrollto"><i class="bx bx-paint-roll"></i> 
-          <span>About This Site</span></a></li>
         </ul>
       </nav><!-- .nav-menu -->
     </div>
@@ -72,32 +71,75 @@
 
   <main id="main">
 
+    
     <!-- ======= About Section ======= -->
     <section id="about" class="about">
       <div class="container">
 
         <div class="section-title">
-          <h2>About Me</h2>
+          <h2>Me</h2>
    
           
         </p>   
         </div>
         <div class="row">
           <div class="col-lg-4" data-aos="fade-right">
-            <img src="assets/img/family.jpeg" class="img-fluid" alt="">
+            <img src="assets/img/sailing.jpeg" class="img-fluid" alt="">
           </div>
           <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
-            <p>
-            Hi there, I'm Lee. I am a software and IT expert with enterprise experience in most areas of the SDLC and operations. I have worked a variety of technical roles in the US and Canada. Eight years ago I was fortunate to find my niche in biotech, working remotely from British Columbia. My family lives in the coastal city of Campbell River on Northeastern Vancouver Island and we love our community. When I'm not working or playing with my kids I can usually be found tinkering on home improvements or spending time in the Ocean.
+            Hi there — I'm Lee, a senior systems expert with a background in applied physics and computer science. Throughout my 13 year career, I’ve built a diverse technical skillset with enterprise experience in Linux systems, infrastructure, cloud computing, technical account management, and project leadership. I've lived and worked in the US and Canada, but for the past 8 years I've been working remotely in the field of biotech from British Columbia, Canada.
             <br><br>
-            I am an enthusiastic learner and communicator, capable of diving deep into technical topics while translating low level nuance to high level audiences. I enjoy mentoring others and creating tools to improve efficiency, but above all, I love solving problems. Whether managing infrastructure, deploying changes, supporting a key account, troubleshooting a server or developing something new - I appreciate challenging problems and take an academic interest in researching solutions.
+            As an enthusiastic learner and communicator, I’m comfortable diving deep into technical topics and translating low-level complexity into clear insights for high-level audiences. I enjoy mentoring, building internal tools, and helping teams improve efficiency—but at the heart of it all, I’m a problem solver. Whether it’s troubleshooting infrastructure, managing a key account, or developing something new, I approach complex challenges with academic curiosity, researching and implementing effective solutions that help customers and colleagues achieve their technical goals.
             <br><br>
+            My family and I live in the coastal city of Campbell River on Northeastern Vancouver Island, where we’ve built strong roots and love our community. When I’m not working or spending time with my kids, you’ll usually find me tinkering on personal projects or enjoying the ocean.
             </p>
           </div>
 
       </div>
     </section><!-- End About Section -->
 
+    <section id="site" class="site">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>About The Site</h2>
+        </p>   
+      </div>
+        <div class="row">
+          </div>
+            <p>
+              <br>
+              This site is a little project I used to teach myself Terraform and serverless architecture in AWS. 
+              <br><br>
+              As you can see from the architecture diagram below, there's a suprising amount going on under the hood. The entire site is hosted for $0/month in AWS and is completely serverless with high speed and availability from CloudFront CDN. In order to provide the visitor counter you see down in the footer of the page, the implementation also includes a serverless API that is backed by Lambda and DynamoDB. Best of all, by using Terraform for IaC, the site content and all underlying AWS infrastructure can be modified, tested, and deployed in seconds via a push to my <b><a href="https://github.com/sichello/sichello"> GitHub repo </a></b> for CI/CD. 
+              <br><br>
+              <img src="assets/img/architecture.png" class="img-fluid" alt="" style="display: block; margin: auto;">
+              <br><br>
+              Couldn't I have just deployed a static resume more quickly using GitHub pages, you ask? Yes, I could have. Is my site completely overengineered for the task? Absolutely, but that's the whole point! It's a small scale implementation of what you'd see in a larger scale web application. Here's how it works:
+              <ol>
+                <li>User requests to load sichello.com in their browser.</li>
+                <li>DNS request is sent to Route53, which resolves to the nearest CloudFront CDN edge location.</li>
+                <li>CloudFront forwards the request to an S3 bucket containing the the frontend files and they are return to the browser.</li>
+                <li>The S3 bucket with frontend code is protected with Origin Access Identity (OAI), which prevents direct access to the bucket.</li>
+                <li>JavaScript in the frontend sends a POST request to an API Gateway to retrieve the number of visitors for the footer.</li>
+                <li>The API Gateway, protected by Cross Origin Resource Sharing (CORS), forwards the POST request to a Lambda function.</li>
+                <li>The Lambda function, written in Python, increments the visitor counter in the DynamoDB and returns the count.</li>
+                <li>The visitor count is displayed in the footer.</li>
+                <li>A Github repo provides code version control and CI/CD through a Github Actions intergration with Terraform.</li>
+                <li>Terraform deploys the AWS infrastructure.</li>
+            </ol>  
+            The project came with a few struggles, but that's where the learning happens. I started off by making a very basic HTML site then manually creating and integrating all the AWS componenents as a proof of concept. Once that had been fleshed out I looped back on the IaC and implemented the nearly thirty underlying AWS site resources in Terraform code- no a small undertaking. Getting the CloudFront configs, Lambda function, CORS rules and routing implemented in Terraform took the majority of the project time. 
+            <br><br>
+            Once I had the site to the point that I could completely destroy all AWS resources with a click, then redeploy them all with another, I took some more time to make the HTML/CSS pretty and update up my resume. If you have any questions about it, shoot me an email, I'd love to chat.
+            </p>
+            <br><br>
+            <hr>
+            <br><br>
+            <div id="visitorsCount" class="col-md-8"> 
+        </div>
+      </div>
+    </section>
+    
     <!-- ======= Facts Section ======= -->
     <section id="facts" class="facts">
       <div class="container">
@@ -146,72 +188,6 @@
       </div>
     </section><!-- End Facts Section -->
 
-    <!-- ======= Skills Section ======= -->
-    <section id="skills" class="skills section-bg">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Skills</h2>
-          <p></p>
-        </div>
-
-        <div class="row skills-content">
-
-          <div class="col-lg-6" data-aos="fade-up">
-
-            <div class="progress">
-              <span class="skill">Troubleshooting <i class="val">100%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">Linux Administration <i class="val">90%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">Networking <i class="val">75%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-          </div>
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-
-            <div class="progress">
-              <span class="skill">Systems Engineering <i class="val">80%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">Project Management <i class="val">75%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">Cloud Operations <i class="val">55%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-    </section><!-- End Skills Section -->
-
     <!-- ======= Resume Section ======= -->
     <section id="resume" class="resume">
       <div class="container">
@@ -224,34 +200,35 @@
           <div class="col-lg-12" data-aos="fade-up" data-aos-delay="100">
             <h3 class="resume-title">Professional Experience</h3>
             <div class="resume-item">
-              <h4>Senior Technical Application Scientist</h4>
+              <h4>Senior Technical Applications Scientist - BioInformatics Solutions</h4>
               <h5>Jan 2018 - Present (6+ yr) </h5>
               <p><em>Illumina Inc, San Diego, California</em></p>
-              <p>Illumina's lab instruments output massive amounts of genetic data requiring subsequent bioinformatic analysis and interpretation. We offer a variety of solutions to meet our customer's bioinformatics needs including SaaS and on-prem solutions, proprietary hardware and rack servers. I specialize in the implementation and troubleshooting of Illumina's bioinformatics solutions and their surrounding infrastructure. </p>
-              <ul>
-                <li>Escalation point for customer issues in software, networking, hardware, security, systems administration, cloud engineering and storage</li>
-                <li>Hardware, kernel and application level troubleshooting of issues on Linux and Windows systems</li>
-                <li>Advocacy between operations and support teams for high availability and fast incident response</li>
-                <li>Triage of product defects with development teams</li>
-                <li>Development and administration of internal tools, compute resources, storage systems</li>
-              </ul>              
-              <p>Skills: Troubleshooting · Red Hat Enterprise Linux · Network-Attached Storage (NAS) · Networking · Information Security · Cloud Engineering · Account Management · Kubernetes · Docker Products · Bioinformatics · Bash</p>
+              <p>Illumina's proprietary sequencing instruments generate vast amounts of genetic data, which are subsequently interpreted using a range of bioinformatics solutions. We offer a variety of SaaS and on-premises solutions, including proprietary hardware and software systems to meet our customers' diverse bioinformatics needs. I specialize in integrating and troubleshooting Illumina's instruments and bioinformatics solutions along with their surrounding tehcnical infrastructure. </p>
+                <ul>
+                  <li>Serve as post-sales customer advocate and internal subject matter expert in SaaS and On-Prem bioinformatics solutions.</li>
+                  <li>Specialized support for complex technical issues in software, networking, hardware, security, and cloud infrastructure.</li>
+                  <li>Provide technical guidance on product implementation, customizations, and best practices.</li>
+                  <li>Troubleshoot Linux and Windows integrated systems at hardware, OS, and application levels.</li>
+                  <li>Monitor production SaaS systems for high availability and rapid incident response.</li>
+                  <li>Collaborate with development teams to triage product defects and improve functionality.</li>
+                  <li>Develop and manage internal tools, HPC compute resources, and storage systems.</li>
+                </ul>            
+              <p>Key Skills: Technical Account Management | SaaS and On-prem Solutions | Troubleshooting | Red Hat Enterprise Linux | Networking | NAS | Security | Cloud Engineering | Kubernetes | | Bioinformatics | Bash | Observability | Integrated Systems </p>
 
             </div>
             <div class="resume-item">
-              <h4>Technical Application Scientist</h4>
+              <h4>Technical Application Scientist - Lab Information Management Systems (LIMS)</h4>
               <h5>Oct 2016 - Jan 2018 (1 yr 4 mos) </h5>
               <p><em>Illumina Inc, San Diego, California</em></p>
-              <p>IIllumina initially hired me to support customer implementations of a Laboratory Information Management Software (LIMS) solution for genomics labs. The LIMS is a 3-tier application offered to customers as a SaaS or on-premise solution which can also be integrated with lab instruments</p>
+              <p>As an experienced Technical Project Manager, I was brought on to lead customer implementations of a Laboratory Information Management System (LIMS) for genomics laboratories. The platform is a traditional three-tier application, available as both a SaaS and on-premise solution, and integrates with Illumina’s laboratory instruments.</p>
               <ul>
-                <li>Technical project management of client implementations</li>
-                <li>Pre and post-sales technical consulting for new LIMS customers</li>
-                <li>Assisting customers to architect infrastructure for their unique LIMS use cases</li>
-                <li>Leading implementations in the phases of planning, provisioning, integration, testing, support</li>
-                <li>Provisioning and administering AWS SaaS resources, mostly in EC2, EBS, S3, Route53, VPC, IAM</li>
-                <li>Providing support for technical issues including after hours or on-call incident response</li>
-              </ul>           
-              <p>Skills: Red Hat Enterprise Linux · Amazon Web Services (AWS) · Networking · Account Management · Project Management · Oracle Database · SQL · System Architecture · Apache · Ansible </p>
+                <li>Led technical implementation projects for genomics Laboratory Information Management System (LIMS).</li>
+                <li>Provided pre and post-sales technical consulting to LIMS customers.</li>
+                <li>Designed solutions architecture for custom LIMS deployments, both on-prem and in AWS.</li>
+                <li>Provisioned and administered AWS resources.</li>
+                <li>Delivered specialized technical support and incident response, including after-hours on-call duties.</li>
+              </ul>         
+              <p>Key Skills: Red Hat Enterprise Linux | Amazon Web Services (EC2, EBS, S3, Route53, VPC, IAM, Cloudwatch) | Networking | Technical Project Management  | SQL | Solutions Architecture | Ansible  </p>
 
             </div>
             <div class="resume-item">
@@ -259,15 +236,13 @@
               <h5>Apr 2015 - Oct 2016 (1 yr 7 mos)</h5>
               <p><em>iQmetrix USA, Davidson, North Carolina</em></p>
               <ul>
-                <li>Relocated from Canadian to US headquarters in Davidson, North Carolina</li>
-                <li>Managing the end-to-end project lifecycle of custom solutions for iQmetrix's largest client</li>
-                <li>Identifying client requirements and managing the delivery of solutions from design to release phases</li>
-                <li>Coordinating remote technical teams: development, database, operations, QA, support</li>
-                <li>Joint application design and systems architecture for partner integrations</li>
-                <li>Authoring project plans, statements of work, design documents and release plans</li>
-                <li>Frequent travel to clients to lead monthly production deployments and feature design sessions</li>
-              </ul>         
-            <p>Skills: Technical Project Leadership · Release Management · System Architecture · Account Management · Joint Application Design (JAD)</p>
+                <li>Led end-to-end project management of custom software solutions for iQmetrix's largest enterprise client.</li>
+                <li>Defined client requirements, overseeing delivery from design to release.</li>
+                <li>Coordinated remote technical teams (development, operations, QA, support).</li>
+                <li>Designed joint application systems architecture for partner integrations.</li>
+                <li>Regularly traveled to client sites for production deployments.</li>
+              </ul>                 
+            <p>Key Skills: Technical Project Management | Release Management | Systems Architecture | Account Management | Joint Application Design (JAD) | Microservices  | Microsoft Azure</p>
             
             </div>
             <div class="resume-item">
@@ -275,14 +250,11 @@
               <h5>May 2013 - Apr 2015 (2 yr)</h5>
               <p><em>iQmetrix Canada, Regina, SK</em></p>
               <ul>
-                <li>Primary QA contact and defect manager for iQmetrix largest enterprise client</li>
-                <li>Regular travel to client HQ in Atlanta for production deployments, validation and triage</li>
-                <li>Configuration and management of 20+ pre-production testing environments</li>
-                <li>Source control, build management and feature/bug tracking</li>
-                <li>Testing using automation, performance, white-box, black-box and regression techniques</li>
-                <li>Analyzing product requirements and creating test plans to validate them</li>
-              </ul>            
-            <p>Skills:Microsoft TFS · Jira · Postman · REST APIs · Account Management · Agile Testing · SQL</p>
+                <li>Led QA for iQmetrix’s largest enterprise client, including bug tracking, automation, and performance testing.</li>
+                <li>Managed 20+ pre-production testing environments.</li>
+                <li>Developed test plans, automation frameworks, and release validation processes.</li>
+              </ul>                          
+            <p>Key Skills: Jira | Postman | REST APIs | Agile Testing | SQL | Test Automation </p>
             
             </div>
             <div class="resume-item">
@@ -290,14 +262,11 @@
               <h5>Jan 2012 - May 2013 (1 yr 5 mos)</h5>
               <p><em>Saskatchewan Cancer Agency, Regina, SK</em></p>
               <ul>
-                <li>Contributing to computational systems for radiotherapy simulation</li>
-                <li>Building a 16-node Linux compute cluster with job scheduler to run radiotherapy simulations</li>
-                <li>Contributing to the development of Monte Carlo radiotherapy simulation software</li>
-                <li>Calibration, quality assurance, and documentation of systems</li>
-                <li>Acting as a key member of the research team</li>
-              </ul>              
-              
-              <p>Skills: Linux · High Performance Computing (HPC) · Bash · C++ · LaTeX · Network Administration · Physics </p>
+                <li>Designed and built a 16-node Linux HPC cluster for radiotherapy simulations.</li>
+                <li>Developed Monte Carlo radiotherapy simulation software.</li>
+                <li>Conducted system calibration, quality assurance, and research.</li>
+              </ul>
+              <p>Key Skills: Linux Administration | HPC | Computational Physics | Bash | C++ | Networking | Radiotherapy </p>
             
             </div>
             <div class="resume-item">
@@ -305,12 +274,11 @@
               <h5>May 2010 - Jan 2012 (1 yr 9 mos)</h5>
               <p><em>University of Regina, Regina, SK</em></p>
               <ul>
-                <li>Assisting in the design of a Cherenkov particle detector for Jefferson Laboratory, Virginia</li>
-                <li>CAD design and drafting of custom manufactured components</li>
-                <li>Software development for simulation and optimization of particle detector performance</li>
-              </ul>
-              
-              <p>Computer-Aided Design (CAD) · C++ · ROOT · Research · Bash · Linux · Physics </p>
+                <li>Assisted in the design of a Cherenkov particle detector for Jefferson Laboratory.</li>
+                <li>Developed particle detector simulation software.</li>
+                <li>Performed Computer-Aided Design of particle detector components.</li>
+              </ul>              
+              <p>Key Skills: Linux Administration | Computer-Aided Design (CAD) | C++ | ROOT | Research | Bash | Siemens Solid Edge</p>
             
             </div>
           </div>
@@ -389,43 +357,6 @@
       </div>
     </section><!-- End Contact Section -->
 
-    <section id="site" class="site">
-      <div class="container">
-        <div class="row">
-          <h2>About This Site</h2>
-          </div>
-            <p>
-              <br>
-              This website is a project I used to learn more about Terraform and serverless design in AWS. Prior to this I had never used Terraform and had always just manually deployed any cloud resources I needed. I had also never built a fully serverless application in AWS so there was much to learn along the way. 
-              <br><br>
-              As you can see from the architecture diagram, there's a suprising amount going on under the hood. The entire site is hosted for $0/month in AWS and is completely serverless with high speed and availability from CloudFront CDN. In order to provide the visitor counter you see down in the footer of the page, the implementation also includes a serverless API that is backed by Lambda and DynamoDB. Best of all, by using Terraform for IaC, the site content and all underlying AWS infrastructure can be modified, tested, and deployed in seconds via a push to my <b><a href="https://github.com/sichello/sichello"> GitHub repo </a></b> for CI/CD. 
-              <br><br>
-              <img src="assets/img/architecture.png" class="img-fluid" alt="" style="display: block; margin: auto;">
-              <br><br>
-              Couldn't I have just deployed a static resume more quickly using GitHub pages, you ask? Yes, I could have. Is my site completely overengineered for the task? Absolutely, but that's the whole point! It's a small scale implementation of what you'd see in a larger scale web application. Here's how it works:
-              <ol>
-                <li>User requests to load sichello.com in their browser.</li>
-                <li>DNS request is sent to Route53, which resolves to the nearest CloudFront CDN edge location.</li>
-                <li>CloudFront forwards the request to an S3 bucket containing the the frontend files and they are return to the browser.</li>
-                <li>The S3 bucket with frontend code is protected with Origin Access Identity (OAI), which prevents direct access to the bucket.</li>
-                <li>JavaScript in the frontend sends a POST request to an API Gateway to retrieve the number of visitors for the footer.</li>
-                <li>The API Gateway, protected by Cross Origin Resource Sharing (CORS), forwards the POST request to a Lambda function.</li>
-                <li>The Lambda function, written in Python, increments the visitor counter in the DynamoDB and returns the count.</li>
-                <li>The visitor count is displayed in the footer.</li>
-                <li>A Github repo provides code version control and CI/CD through a Github Actions intergration with Terraform.</li>
-                <li>Terraform deploys the AWS infrastructure.</li>
-            </ol>  
-            The project was not without its struggles, but that's usually where the learning happens for me. I started off by making a very basic HTML site then manually creating and integrating all the AWS componenents as a proof of concept. Once that had been fleshed out I looped back on the IaC and implemented the nearly thirty underlying AWS site resources in Terraform code- no a small undertaking. Getting the CloudFront configs, Lambda function, CORS rules and routing implemented in Terraform took the majority of the project time. 
-            <br><br>
-            Once I had the site to the point that I could completely destroy all AWS resources, then redeploy them all with click, I took some more time to make the HTML/CSS pretty and update up my resume. If you have any questions about it, shoot me an email, I'd love to chat.
-            </p>
-            <br><br>
-            <hr>
-            <br><br>
-            <div id="visitorsCount" class="col-md-8"> 
-        </div>
-      </div>
-    </section>
   </main><!-- End #main -->
 
 
