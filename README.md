@@ -2,7 +2,7 @@
 
 ## About This Site
 
-This website is a project I built to teach myself about Terraform and serverless architecture in AWS. As you can see from the architecture diagram below, there's a suprising amount going on under the hood. The entire site is hosted for $0/month in AWS and is completely serverless with high speed and availability from Cloudfront CDN. In order to provide the visitor counter you see down in the footer of the page, the implementation also includes a serverless API that is backed by Lambda and DynamoDB. Best of all, by using Terraform for IaC, the site content and all underlying AWS infrastructure can be modified, tested, and deployed in seconds via a push to my GitHub repo for CI/CD.
+I built this website as a project to teach myself about Terraform and serverless architecture in AWS. As you can see from the architecture diagram below, there's a lot going on under the hood, for a simple site. The entire site is hosted for $0.24/month in AWS and is completely serverless with high speed and availability from Cloudfront CDN. In order to provide the visitor counter you see down in the footer of the page, the implementation also includes a serverless API that is backed by Lambda and DynamoDB. Best of all, by using Terraform for IaC, the site content and all underlying AWS infrastructure can be modified, tested, and deployed in seconds via a push to my GitHub repo for CI/CD.
 
 ![Site Architecture](/src/assets//img/architecture.png)
 
